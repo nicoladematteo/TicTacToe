@@ -11,7 +11,7 @@ char numberToLetter(int x)
         if (x == 2)
             return 'O';
     }
-    if (x == 0)
+    else
         return ' ';
 }
 
@@ -46,7 +46,7 @@ int getWinner(int board[9])
     }
     return winner;
 }
-bool gameOver(int board[9])
+bool isGameOver(int board[9])
 {
     int winner = getWinner(board);
     if (winner > 0)

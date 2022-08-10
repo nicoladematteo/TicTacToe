@@ -18,13 +18,13 @@ int main()
         playerMove(moveX, moveXString, board, 1);
 
         outputBoard(board);
-        if (gameOver(board))
+        if (isGameOver(board))
             break;
 
         playerMove(moveO, moveOString, board, 2);
 
         outputBoard(board);
-        if (gameOver(board))
+        if (isGameOver(board))
             break;
     }
 }
