@@ -75,8 +75,10 @@ void outputBoard(int board[9])
     }
 }
 
-void playerMove(int move, std::string moveString, int board[9], int player)
+void playerMove(int board[9], int player)
 {
+    std::string moveString;
+    int move = 0;
     bool isInvalid = 0;
     do
     {
