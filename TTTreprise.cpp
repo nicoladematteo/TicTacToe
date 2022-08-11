@@ -1,26 +1,27 @@
-
 #include <iostream>
 #include <string>
+
 #include "TTTreprise.h"
 
 int main()
 {
-    int board[9] = {0};
+    int actualBoard[9] = {0};
+    GameBoard table;
+    Player playerOne, playerTwo;
 
-    std::cout << "1|2|3\n-----\n4|5|6\n-----\n7|8|9\n\n";
+    table.instruction();
 
     while (true)
     {
-        playerMove(board, 1);
+        playerOne.playerMove(actualBoard, 1);
+        table.outputBoard(actualBoard);
 
-        outputBoard(board);
-        if (isGameOver(board))
+        if (table.isGameOver(actualBoard))
             break;
+        playerTwo.playerMove(actualBoard, 2);
+        table.outputBoard(actualBoard);
 
-        playerMove(board, 2);
-
-        outputBoard(board);
-        if (isGameOver(board))
+        if (table.isGameOver(actualBoard))
             break;
     }
 }
