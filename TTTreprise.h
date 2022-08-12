@@ -34,12 +34,6 @@ class GameBoard
 private:
     int board[9] = {0};
 
-public:
-    void instruction()
-    {
-        std::cout << "1|2|3\n-----\n4|5|6\n-----\n7|8|9\n\n";
-    }
-
     char numberToLetter(int x)
     {
         ((x > 0) ? (x == 1) ? 'X' : 'O' : ' ');
@@ -52,18 +46,6 @@ public:
         }
         else
             return ' ';
-    }
-
-    void outputBoard(int board[9])
-    {
-        for (int line = 0; line < 3; line++)
-        {
-            for (int spot = 0; spot < 3; spot++)
-            {
-                std::cout << numberToLetter(board[3 * line + spot]) << ((spot < 2) ? '|' : '\n');
-            }
-            std::cout << ((line < 2) ? "-----\n" : "\n");
-        }
     }
 
     bool compareSpots(int spot1, int spot2, int spot3)
@@ -97,6 +79,28 @@ public:
         }
         return winner;
     }
+
+public:
+    void instruction()
+    {
+        std::cout << "1|2|3\n-----\n4|5|6\n-----\n7|8|9\n\n";
+    }
+
+    
+
+    void outputBoard(int board[9])
+    {
+        for (int line = 0; line < 3; line++)
+        {
+            for (int spot = 0; spot < 3; spot++)
+            {
+                std::cout << numberToLetter(board[3 * line + spot]) << ((spot < 2) ? '|' : '\n');
+            }
+            std::cout << ((line < 2) ? "-----\n" : "\n");
+        }
+    }
+
+    
     bool isGameOver(int board[9])
     {
         int winner = getWinner(board);
