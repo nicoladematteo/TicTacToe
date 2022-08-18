@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include "TTTreprise.h"
+#include "GameBoard.h"
+#include "Player.h"
 
 int main()
 {

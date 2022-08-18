@@ -1,6 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/spun/Desktop/progetti/lavoro/TicTacToeReprise/TicTacToe'
-make: Leaving directory `/Users/spun/Desktop/progetti/lavoro/TicTacToeReprise/TicTacToe'
+make: Entering directory `/Users/spun/Desktop/progetti/lavoro/01TTT/TicTacToe'
+make: Leaving directory `/Users/spun/Desktop/progetti/lavoro/01TTT/TicTacToe'
  
 make: *** No targets specified and no makefile found.  Stop.
 
