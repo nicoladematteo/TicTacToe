@@ -21,7 +21,7 @@ char GameBoard::numberToLetter(int x)
         return ' ';
 }
 
-void GameBoard::outputBoard(int board[9])
+void GameBoard::outputBoard()
 {
     for (int line = 0; line < 3; line++)
     {
@@ -41,7 +41,7 @@ bool GameBoard::compareSpots(int spot1, int spot2, int spot3)
         return false;
 }
 
-int GameBoard::getWinner(int board[9])
+int GameBoard::getWinner()
 {
     int winner = 0;
     for (int x = 0; x < 3; x++)
@@ -65,9 +65,9 @@ int GameBoard::getWinner(int board[9])
     return winner;
 }
 
-bool GameBoard::isGameOver(int board[9])
+bool GameBoard::isGameOver()
 {
-    int winner = getWinner(board);
+    int winner = getWinner();
     if (winner > 0)
     {
         std::cout << numberToLetter(winner) << " wins!" << std::endl;

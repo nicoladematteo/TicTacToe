@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-
 #include "GameBoard.h"
 #include "Player.h"
 
 int main()
 {
-    int actualBoard[9] = {0};
+
     GameBoard table;
     Player playerOne, playerTwo;
 
@@ -14,15 +13,15 @@ int main()
 
     while (true)
     {
-        playerOne.playerMove(actualBoard, 1);
-        table.outputBoard(actualBoard);
+        playerOne.playerMove(table.board, 1);
+        table.outputBoard();
 
-        if (table.isGameOver(actualBoard))
+        if (table.isGameOver())
             break;
-        playerTwo.playerMove(actualBoard, 2);
-        table.outputBoard(actualBoard);
+        playerTwo.playerMove(table.board, 2);
+        table.outputBoard();
 
-        if (table.isGameOver(actualBoard))
+        if (table.isGameOver())
             break;
     }
 }

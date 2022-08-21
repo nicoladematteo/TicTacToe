@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include "Player.h"
+#include "GameBoard.h"
 
-void Player::playerMove(int board[9], int player)
+void Player::playerMove(int* board, int player)
 {
     std::string moveString;
     int move = 0;

@@ -2,19 +2,15 @@
 
 class GameBoard
 {
+
 private:
-    int board[9] = {0};
-
     char numberToLetter(int);
-
     bool compareSpots(int, int, int);
-
-    int getWinner(int *);
+    int getWinner();
 
 public:
+    int board[9] = {0};
     void instruction();
-
-    void outputBoard(int *);
-
-    bool isGameOver(int *);
+    void outputBoard();
+    bool isGameOver();
 };
