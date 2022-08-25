@@ -41,7 +41,7 @@ bool GameBoard::compareSpots(int spot1, int spot2, int spot3)
         return false;
 }
 
-int GameBoard::getWinner()
+int GameBoard::getWinner(int board[9])
 {
     int winner = 0;
     for (int x = 0; x < 3; x++)
@@ -67,7 +67,7 @@ int GameBoard::getWinner()
 
 bool GameBoard::isGameOver()
 {
-    int winner = getWinner();
+    int winner = getWinner(board);
     if (winner > 0)
     {
         std::cout << numberToLetter(winner) << " wins!" << std::endl;
@@ -80,4 +80,20 @@ bool GameBoard::isGameOver()
     }
     std::cout << "Tie!\n\n";
     return true;
+}
+
+int GameBoard::winInTheNextMove(int player)
+{
+    for (int x = 0; x < 9; x++)
+    {
+        std::copy(board,board+9,temporary);
+        if (board[x] > 0)
+            continue;
+        temporary[x] = player;
+        if (getWinner(temporary) == player)
+            return x;
+
+    }
+    return -1;
+    
 }
