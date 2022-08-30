@@ -3,6 +3,7 @@
 #include "GameBoard.h"
 #include "Player.h"
 #include "AiPlayer.h"
+#include "IPlayer.h"
 
 int main()
 {
@@ -23,28 +24,13 @@ int main()
     case 'a':
         while (true)
         {
-            playerOne.playerMove(table.board, 1);
+            playerOne.move(&table, 1);
             table.outputBoard();
 
             if (table.isGameOver())
                 break;
+            aiPlayer.move(&table, 2);
 
-            if (table.winInTheNextMove(1) != -1)
-            {
-                table.board[table.winInTheNextMove(1)] = 2;
-            }
-            else if (table.winInTheNextMove(2) != -1)
-            {
-                table.board[table.winInTheNextMove(2)] = 2;
-            }
-            else if (table.board[4] == 0)
-            {
-                table.board[4] = 2;
-            }
-            else
-            {
-                aiPlayer.AiMoveRandom(table.board, 2);
-            }
             table.outputBoard();
 
             if (table.isGameOver())
@@ -62,12 +48,12 @@ int main()
 
             while (true)
             {
-                playerOne.playerMove(table.board, 1);
+                playerOne.move(&table, 1);
                 table.outputBoard();
 
                 if (table.isGameOver())
                     break;
-                playerTwo.playerMove(table.board, 2);
+                playerTwo.move(&table, 2);
                 table.outputBoard();
 
                 if (table.isGameOver())
@@ -82,12 +68,12 @@ int main()
 
         while (true)
         {
-            aiPlayer.AiMoveRandom(table.board, 1);
+            aiPlayer.move(&table, 1);
             table.outputBoard();
 
             if (table.isGameOver())
                 break;
-            aiPlayer.AiMoveRandom(table.board, 2);
+            aiPlayer.move(&table, 2);
             table.outputBoard();
 
             if (table.isGameOver())

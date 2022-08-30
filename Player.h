@@ -1,10 +1,11 @@
 #pragma once
 
+#include "IPlayer.h"
 #include "GameBoard.h"
 
-class Player
+class Player : public IPlayer
 {
 public:
-    GameBoard *board;
-    void playerMove(int *, int);
+    // ~Player();
+    void move(GameBoard *, int);
 };

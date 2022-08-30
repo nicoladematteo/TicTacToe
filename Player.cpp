@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "GameBoard.h"
 
-void Player::playerMove(int* board, int player)
+void Player::move(GameBoard *table , int player)
 {
     std::string moveString;
     int move = 0;
@@ -13,14 +13,14 @@ void Player::playerMove(int* board, int player)
         std::cout << "player " << player << " has to move: ";
         getline(std::cin, moveString);
         move = moveString[0] - '1';
-        if (move > 8 || move < 0 || board[move] != 0)
+        if (move > 8 || move < 0 || table->board[move] != 0)
         {
             std::cout << "Invalid input" << std::endl;
             isInvalid = true;
         }
         else
         {
-            board[move] = player;
+            table->board[move] = player;
             isInvalid = false;
             std::cout << std::endl;
         }

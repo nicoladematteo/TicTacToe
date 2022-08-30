@@ -9,16 +9,32 @@ void GameBoard::instruction()
 
 char GameBoard::numberToLetter(int x)
 {
-    ((x > 0) ? (x == 1) ? 'X' : 'O' : ' ');
-    if (x > 0)
-    {
-        if (x == 1)
-            return 'X';
-        if (x == 2)
-            return 'O';
-    }
-    else
-        return ' ';
+    return ((x > 0)         // if
+                ? (x == 1)  // and if
+                      ? 'X' // return X
+                      : 'O' // else return O
+                : ' ');     //
+    // if (x > 0)
+    // {
+    //     if (x == 1)
+    //         return 'X';
+    //     else
+    //         return 'O';
+    // }
+    // else
+    //     return ' ';
+
+    // if (x <= 0)
+
+    //     return ' ';
+
+    // if (x == 1)
+
+    //     return 'X';
+
+    // else
+
+    //     return 'O';
 }
 
 void GameBoard::outputBoard()
@@ -86,14 +102,12 @@ int GameBoard::winInTheNextMove(int player)
 {
     for (int x = 0; x < 9; x++)
     {
-        std::copy(board,board+9,temporary);
+        std::copy(board, board + 9, temporary);
         if (board[x] > 0)
             continue;
         temporary[x] = player;
         if (getWinner(temporary) == player)
             return x;
-
     }
     return -1;
-    
 }

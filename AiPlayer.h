@@ -1,10 +1,14 @@
 #pragma once
 
+#include "IPlayer.h"
 #include "GameBoard.h"
 
-class AiPlayer
+class AiPlayer : public IPlayer
 {
 public:
-    GameBoard *board;
-    void AiMoveRandom(int *, int);
+    // ~AiPlayer();
+    void move(GameBoard *, int);
+
+private:
+    void aiMoveRandom(int *, int);
 };
