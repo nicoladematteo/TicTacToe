@@ -9,32 +9,11 @@ void GameBoard::instruction()
 
 char GameBoard::numberToLetter(int x)
 {
-    return ((x > 0)         // if
-                ? (x == 1)  // and if
-                      ? 'X' // return X
-                      : 'O' // else return O
-                : ' ');     //
-    // if (x > 0)
-    // {
-    //     if (x == 1)
-    //         return 'X';
-    //     else
-    //         return 'O';
-    // }
-    // else
-    //     return ' ';
-
-    // if (x <= 0)
-
-    //     return ' ';
-
-    // if (x == 1)
-
-    //     return 'X';
-
-    // else
-
-    //     return 'O';
+    return ((x > 0)
+                ? (x == 1)
+                      ? 'X'
+                      : 'O'
+                : ' ');
 }
 
 void GameBoard::outputBoard()

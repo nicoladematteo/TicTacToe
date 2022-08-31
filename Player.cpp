@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "GameBoard.h"
 
-void Player::move(GameBoard *table , int player)
+void Player::move(GameBoard *table, int player)
 {
     std::string moveString;
     int move = 0;

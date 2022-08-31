@@ -5,6 +5,14 @@
 #include "AiPlayer.h"
 #include "IPlayer.h"
 
+IPlayer *CreatePlayer(bool human)
+{
+    if (human)
+        return new Player();
+    else
+        return new AiPlayer();
+}
+
 int main()
 {
 
@@ -12,80 +20,48 @@ int main()
     Player playerOne, playerTwo;
     AiPlayer aiPlayer;
 
-    table.instruction();
+    IPlayer *player1 = new Player;
+    IPlayer *player2 = new Player;
 
     char oper;
-    char operTwo;
-    std::cout << "Do you want to play: \n\n 1VsAI, press a \n\n 1Vs1, press b. " << std::endl;
+    std::cout << "press a to play 1vs1, b to play 1vsAi or c AiVsAi" << std::endl;
     std::cin >> oper;
 
     switch (oper)
     {
     case 'a':
-        while (true)
-        {
-            playerOne.move(&table, 1);
-            table.outputBoard();
-
-            if (table.isGameOver())
-                break;
-            aiPlayer.move(&table, 2);
-
-            table.outputBoard();
-
-            if (table.isGameOver())
-                break;
-        }
-        break;
-
+    {
+        player1 = CreatePlayer(true);
+        player2 = CreatePlayer(true);
+    }
+    break;
     case 'b':
-        std::cout << "1 or 2?" << std::endl;
-        std::cin >> operTwo;
+    {
+        player1 = CreatePlayer(true);
+        player2 = CreatePlayer(false);
+    }
+    break;
+    case 'c':
+    {
+        player1 = CreatePlayer(false);
+        player2 = CreatePlayer(false);
+    }
+    break;
+    }
 
-        switch (operTwo)
-        {
-        case '1':
+    table.instruction();
+    while (true)
+    {
+        player1->move(&table, 1);
+        table.outputBoard();
 
-            while (true)
-            {
-                playerOne.move(&table, 1);
-                table.outputBoard();
-
-                if (table.isGameOver())
-                    break;
-                playerTwo.move(&table, 2);
-                table.outputBoard();
-
-                if (table.isGameOver())
-                    break;
-            }
+        if (table.isGameOver())
             break;
-        default:
+
+        player2->move(&table, 2);
+        table.outputBoard();
+
+        if (table.isGameOver())
             break;
-        }
-
-    case '3':
-
-        while (true)
-        {
-            aiPlayer.move(&table, 1);
-            table.outputBoard();
-
-            if (table.isGameOver())
-                break;
-            aiPlayer.move(&table, 2);
-            table.outputBoard();
-
-            if (table.isGameOver())
-                break;
-        }
-        break;
-
-    default:
-        // operator is doesn't match any case constant (+, -, *, /)
-        std::cout << "Error! The operator is not correct";
-        break;
     }
 }
-
-// you don't wanna loose , who knows what is going to happen, you can not win

@@ -7,9 +7,7 @@ private:
     char numberToLetter(int);
     bool compareSpots(int, int, int);
     int getWinner(int *);
-    
     int temporary[9] = {0};
-    
 
 public:
     int board[9] = {0};
@@ -17,5 +15,4 @@ public:
     void outputBoard();
     bool isGameOver();
     int winInTheNextMove(int);
-    
 };

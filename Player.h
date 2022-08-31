@@ -6,6 +6,5 @@
 class Player : public IPlayer
 {
 public:
-    // ~Player();
     void move(GameBoard *, int);
 };

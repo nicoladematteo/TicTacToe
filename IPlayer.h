@@ -4,7 +4,6 @@
 
 class IPlayer
 {
-    public:
-    virtual void move (GameBoard *, int) = 0;
-    // virtual ~IPlayer(){};
+public:
+    virtual void move(GameBoard *, int) = 0;
 };

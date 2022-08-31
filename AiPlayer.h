@@ -6,7 +6,6 @@
 class AiPlayer : public IPlayer
 {
 public:
-    // ~AiPlayer();
     void move(GameBoard *, int);
 
 private:

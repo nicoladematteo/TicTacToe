@@ -15,16 +15,18 @@ void AiPlayer::aiMoveRandom(int *board, int player)
     board[move] = player;
 }
 
-void AiPlayer::move(GameBoard *table, int player) //try to put & instead *
+void AiPlayer::move(GameBoard *table, int player)
 {
-    int otherPlayer = (player %2) +1; //inverse 1 with 2 and viceversa
-    if (table->winInTheNextMove(otherPlayer) != -1)
+    int otherPlayer = (player % 2) + 1; // inverse 1 with 2 and viceversa
+    int opponentIsGoingToWin = table->winInTheNextMove(otherPlayer);
+    int playerIsGoingToWin = table->winInTheNextMove(player);
+    if (playerIsGoingToWin != -1)
     {
-        table->board[table->winInTheNextMove(otherPlayer)] = player;
+        table->board[playerIsGoingToWin] = player;
     }
-    else if (table->winInTheNextMove(player) != -1)
+    else if (opponentIsGoingToWin != -1)
     {
-        table->board[table->winInTheNextMove(player)] = player;
+        table->board[opponentIsGoingToWin] = player;
     }
     else if (table->board[4] == 0)
     {
