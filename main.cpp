@@ -17,11 +17,9 @@ int main()
 {
 
     GameBoard table;
-    Player playerOne, playerTwo;
-    AiPlayer aiPlayer;
 
-    IPlayer *player1 = new Player;
-    IPlayer *player2 = new Player;
+    IPlayer *player1;
+    IPlayer *player2;
 
     char oper;
     std::cout << "press a to play 1vs1, b to play 1vsAi or c AiVsAi" << std::endl;
